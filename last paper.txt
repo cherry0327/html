@@ -1,0 +1,203 @@
+Last Paper-6
+*************************************************************************************
+HTML
+************************************************************************************
+<html>
+<head>
+<script type="text/javascript" src="loan.js"></script>
+</head>
+
+ <body>
+ <form name="myform" id="myForm" onsubmit="getmyData()">
+  <table border="1" align="center">
+  <tr><td>
+    
+     <table cellpadding="10">
+     <tr><th align="center" colspan="2">LOAN APPLICATION FORM</th></tr>
+        <tr>
+          <td>DO you have a loan already?</td>
+           <td><input type="radio" name="loan" value="yes" onchange="yes()" required/>yes
+               <input type="radio" name="loan" value="no"/>no
+           </td>
+        </tr>
+          <tr>
+           <td>customer name</td> 
+          <td> <input type="text" name="cname" pattern="[A-Za-z]{4,}" required/></td></tr>                         
+                    
+         <tr>
+          <td>mobile number</td>
+          <td><input type="text" name="cnum"  pattern="[0-9]{10}"required/></td></tr>
+          
+         <tr>
+          <td>EmailID:</td>
+          <td><input type="email" name="cmail"  required/></td></tr>
+          
+          <tr>
+          <td>Proof of Identity</td>
+          <td>
+          <input type="checkbox" name="interest" value="PAN CARD"/>pancard
+          <input type="checkbox" name="interest" value="voters id"/>voters id<br>
+          <input type="checkbox" name="interest" value="PASSPORT"/>passport
+          <input type="checkbox" name="interest"  value="DRIVL"/>driving lisence
+          </td></tr>
+          
+            <tr>
+             <td>LOAN AMOUNT</td>
+             <td> <select name="la" required>
+                  <option value="">loan amount</option>
+                  <option value="50,000 to 1,00,000">50,000 to 1,00,000</option>
+                  <option value="1,00,001 to 2,00,000">1,00,001 to 2,00,000</option>
+                  <option value="2,00,001 to 3,00,000">2,00,001 to 3,00,000</option></select>
+             </td>
+             </tr>
+                
+                <tr>
+                <td align="center"><input type="submit"  value="apply loan" /></td>             
+                <td align="center"><input type="reset"  value="reset"></td>
+                </tr>
+                    
+     </table>
+    
+    </td>
+    </tr>
+    </table>
+    </form>  
+    </body>
+    </html>
+    **********************************************************************************************************************
+    JS
+    **********************************************************************************************************************
+    function getmyData()
+{
+    var a=document.myform.cname.value;
+    var b=document.myform.cnum.value;
+    var d=document.myform.la.value;
+    var e=document.myform.interest;
+    var Pd=0;
+    var msg=true;
+    var str="";
+    for(i=0;i<=e.length-1;i++)
+    {
+        if(e[i].checked)
+        {
+            str+=e[i].value;
+            //alert(e[i].value);
+            msg=false;
+        }
+    }
+        if(msg)
+            {
+                alert("Select any proof");
+                document.getElementById("myForm").reset();
+                
+            }
+        else 
+    {       
+        if(d=="50,000 to 1,00,000")
+            {
+            Pd=1;
+            }
+        else if(d=="1,00,001 to 2,00,000")
+            {
+            Pd=5;
+            }
+        else if(d=="2,00,001 to 3,00,000")
+            {
+            Pd=10;
+            }           
+     alert("CustomerName:"+a+'\n'+"Customer Number:"+b+'\n'+"Loan Amount:"+d+'\n'+"Payable duration:"+Pd+'\n'+"Documents submitted"+str);
+}
+}
+function yes()
+{
+var a=confirm('you cannot take a loan ');
+if(a)
+{
+myform.reset();
+}
+}
+****************************************************************************************************************************
+   XML
+  *******************************************************************************************************
+  
+  <?xml version="1.0" encoding="UTF-8"?>
+
+<customers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="cust.xsd">
+
+        <customer>
+        
+                <app-id>1001</app-id>
+                <name>priya</name>
+                <mobile-no>9982212345</mobile-no>
+                <email>priya@capgemini.com</email>
+                <prg-id>1</prg-id>
+        </customer>
+        
+        <customer>
+        
+                <app-id>1002</app-id>
+                <name>Anu</name>
+                <mobile-no>9982254321</mobile-no>
+                <email>anu@capgemini.com</email>
+                <prg-id>1</prg-id>
+        </customer>
+        
+        
+        <customer>
+        
+                <app-id>1003</app-id>
+                <name>Arun</name>
+                <mobile-no>9982287335</mobile-no>
+                <email>arun@capgemini.com</email>
+                <prg-id>1</prg-id>
+        </customer>
+        
+            <customer>
+        
+                <app-id>1004</app-id>
+                <name>Shyam</name>
+                <mobile-no>9999912345</mobile-no>
+                <email>shyam@capgemini.com</email>
+                <prg-id>2</prg-id>
+        </customer>
+        
+        
+            <customer>
+        
+                <app-id>1005</app-id>
+                <name>Priyank</name>
+                <mobile-no>9982233123</mobile-no>
+                <email>priyank@capgemini.com</email>
+                <prg-id>2</prg-id>
+        </customer>
+
+</customers>
+
+*******************************************************************************************************
+   XSD
+  *********************************************************************************************
+  
+  <?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+        
+       <xs:element name="customers">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="customer" minOccurs="1" maxOccurs="unbounded">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="app-id" type="xs:int"></xs:element>
+                                                 <xs:element name="name" type="xs:string"></xs:element>
+                                                 <xs:element name="mobile-no" type="xs:integer"></xs:element>
+                                                 <xs:element name="email" type="xs:string"></xs:element>
+                                                 <xs:element name="prg-id" type="xs:int"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+   </xs:schema>
+   
+  *******************************************************************************************************************   
