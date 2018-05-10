@@ -1,0 +1,192 @@
+SYSTEMS paper-1
+**************************************************************************************************************************
+HTML
+**************************************************************************************************************
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="mp.js"></script>
+    </head>
+    <body>
+     <form name="cinema" onsubmit="getData()">
+     <table border="3" align="center">
+     <tr><td>
+    <table>
+    <tr><td colspan="2" align="center"> <h1>Movie Palace</h1> </td> </tr>
+                    <tr>
+                        <td>Customer Name:</td>
+                        <td><input type="text" name="name" pattern="[A-Za-z]{5,}" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Number:</td>
+                        <td><input type="text" name="mobn" pattern="[7-9]{1}[0-9]{9}" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Email Id:</td>
+                        <td><input type="email" name="mail" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Movie Name:</td>
+                        <td><input type="text" name="moname" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Class:</td>
+                        <td>
+                            <input type="radio" id="r1" name="classes" value="Gold" required><strong>Gold</strong>
+                            <input type="radio" id="r2" name="classes" value="Silver"><strong>Silver</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tickets:</td>
+                        <td><input type="number" name="ticket" max="10" required/></td>
+                    </tr>
+                    
+                    <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Book"/></td></tr>
+            
+        </table>
+        </td></tr>
+        </table>
+        </form>
+        
+    </body>
+</html>
+**********************************************************************************************************************************
+JS
+*********************************************************************************************************************************
+function getData()
+{
+    var cname=document.cinema.name.value;
+    var cnumber=document.cinema.mobn.value;
+    var notic=document.cinema.ticket.value;
+    var mclass=document.cinema.classes.value;
+    var etax=0,total=0;
+    
+    if(document.cinema.classes.value.checked)
+        {
+        etax=(notic*300)
+        total=etax+(etax*0.12);
+        
+        }
+    else
+    {
+        etax=(notic*200);
+        total=etax+(etax*0.12);
+    }
+    
+    
+    alert("Name:"+cname+'\n'+"Mobile Number"+cnumber+'\n'+"Number of tickets:" + notic +'\n'+"Class"+mclass+'\n'+"total Amount:"+total);
+}
+********************************************************************************************************************
+XML
+*******************************************************************************************************************************
+
+<?xml version="1.0" encoding="UTF-8"?>
+<orders xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="order5.xsd">
+
+
+
+    <order>
+    
+        <ordid>OR001</ordid>
+        <pname>Laptop</pname>
+        <Qty>4</Qty>
+        <price>3000</price>
+        <custid>1001</custid>   
+    
+    </order>
+    
+    
+    <order>
+    
+        <ordid>OR002</ordid>
+        <pname>Mobile</pname>
+        <Qty>1</Qty>
+        <price>4000</price>
+        <custid>1001</custid>   
+    
+    </order>
+    
+    
+    <order>
+    
+        <ordid>OR003</ordid>
+        <pname>Cosmetics</pname>
+        <Qty>2</Qty>
+        <price>8000</price>
+        <custid>1001</custid>   
+    
+    </order>
+    
+    
+    <order>
+    
+        <ordid>OR004</ordid>
+        <pname>Cosmetics</pname>
+        <Qty>2</Qty>
+        <price>2000</price>
+        <custid>1003</custid>   
+    
+    </order>
+    
+    
+        <order>
+    
+        <ordid>OR005</ordid>
+        <pname>Mobile</pname>
+        <Qty>4</Qty>
+        <price>6000</price>
+        <custid>1003</custid>   
+    
+    </order>
+    
+        <order>
+    
+        <ordid>OR006</ordid>
+        <pname>USB Cable</pname>
+        <Qty>2</Qty>
+        <price>600</price>
+        <custid>1002</custid>   
+    
+    </order>
+    
+        <order>
+    
+        <ordid>OR007</ordid>
+        <pname>USB Cable</pname>
+        <Qty>4</Qty>
+        <price>600</price>
+        <custid>1003</custid>   
+    
+    </order>
+    
+</orders>   
+***********************************************************************************************
+Xsd
+************************************************************************************************
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+          
+       <xs:element name="orders">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="order" maxOccurs="unbounded">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="ordid" type="xs:string"></xs:element>
+                                                 <xs:element name="pname" type="xs:string"></xs:element>
+                                                 <xs:element name="Qty" type="xs:integer"></xs:element>
+                                                 <xs:element name="price" type="xs:integer"></xs:element>
+                                                 <xs:element name="custid" type="xs:integer"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+   </xs:schema>
+   
+   ***********************************************************************************************************************
+   

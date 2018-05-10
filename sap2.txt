@@ -1,0 +1,177 @@
+SAP paper-2
+******************************************************************************************************************************
+Pseudo code: sned later
+*******************************************************************************************************
+HTML
+***********************************************************************************
+<!DOCTYPE>
+<html>
+    <head>
+    <script type="text/javascript" src="elec.js"> </script>
+    
+    </head>
+    <body>
+    <form name="myform" onsubmit="getAllData()">
+    <center>
+    <table border ="3">
+    <tr> <td>
+    
+    <table cellpadding="10">
+
+    <tr align="center"><th style="font-size:25" colspan="2">Electricity Consumer Form</th></tr>
+    
+
+<tr>
+<td>Consumer No:</td>
+<td><input type="text" name="cid"  pattern="[0-9]{8}" title="need to give length is 8 numbers" required/></td>
+</tr>
+<tr>
+<td>Consumer Name:</td>
+<td><input type="text" name="cname"  pattern="[A-Z][a-z]{2,}" title="need to give the first letter as capital and length is minimum 3 variables" required/></td>
+</tr>
+
+
+<tr>
+<td>Email Address:</td>
+<td><input type="email" name="em" title="need to give in requested format" required/></td>
+</tr>
+
+<tr>
+<td>Number of Units:</td>
+<td><input type="text" name="nunits" pattern="[0-9]{1,}" required/></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center"> <input type="submit" value="Calculate Electricity Charges and Display" /></td>
+</tr>
+</td></tr>
+</table>
+</table>
+</center>
+</form>
+
+</body>
+</html>
+****************************************************************************************************************************
+JS
+*****************************************************************************************************
+
+function getAllData()
+{
+
+var price=0;
+var a= document.myform.nunits.value;
+var b= document.myform.cname.value;
+var c=document.myform.cid.value;
+var d=document.myform.em.value;
+        if(a==0)
+        {
+        alert("Invalid Input");
+    
+        }
+        
+        if(a>100)
+        {
+         price=100*2.96;
+         price=price+((a-100)*5.96);
+        }
+    else
+    price=a*2.96;
+    alert("Customer Number:"+c+'\n'+"Customer Name:"+b+'\n'+"Customer Email:"+d+'\n'+"Number of Units"+a+'\n'+"Price:"+price);
+    return price;}
+    ************************************************************************************************************************
+    XML
+ ***********************************************************************************************************************
+ <?xml version="1.0" encoding="UTF-8"?>
+<ElectricityConsumer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="electricity.xsd">
+    <Consumer ConsumerID="12345">
+        <consumerno>12322110</consumerno>
+        <consumername>Seema Joshi</consumername>
+        <mail>seemajoshi@capgemini.com</mail>
+        <unitsconsumed>250</unitsconsumed>
+    </Consumer>
+    <Consumer ConsumerID="12346">
+        <consumerno>17531111</consumerno>
+        <consumername>Amey Joshi</consumername>
+        <mail>amey.j@capgemini.com</mail>
+        <unitsconsumed>345</unitsconsumed>
+    </Consumer>
+    <Consumer ConsumerID="12347">
+        <consumerno>17533411</consumerno>
+        <consumername>Pravin T</consumername>
+        <mail>pravin.t@gamil.com</mail>
+        <unitsconsumed>457</unitsconsumed>
+    </Consumer>
+    <Consumer ConsumerID="12348">
+        <consumerno>12432121</consumerno>
+        <consumername>Manoj Kulkarni</consumername>
+        <mail>manoj.k@gmail.com</mail>
+        <unitsconsumed>457</unitsconsumed>
+    </Consumer>
+    <Consumer ConsumerID="12349">
+        <consumerno>12342111</consumerno>
+        <consumername>Shrikant Shinde</consumername>
+        <mail>shrikant.shinde@gmail.com</mail>
+        <unitsconsumed>90</unitsconsumed>
+    </Consumer>
+    <Consumer ConsumerID="12340">
+        <consumerno>15432152</consumerno>
+        <consumername>Mahesh B</consumername>
+        <mail>bmahesh@gmail.com</mail>
+        <unitsconsumed>720</unitsconsumed>
+    </Consumer>
+    
+</ElectricityConsumer>
+**********************************************************************************************************************************
+XSD
+***********************************************************************************************************************
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ElectricityConsumer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Consumer" maxOccurs="10">
+                    <xs:complexType>
+                        <xs:sequence>
+                        
+                            <xs:element name="consumerno">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="consumername">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="mail">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"></xs:pattern>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            
+                            <xs:element name="unitsconsumed">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:minInclusive value ="0"></xs:minInclusive>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+            
+                        </xs:sequence>
+                        <xs:attribute name="ConsumerID" type="xs:int" use="required">
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+ 

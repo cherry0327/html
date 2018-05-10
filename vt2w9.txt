@@ -1,0 +1,332 @@
+********************sys mam paper*****************************
+*****************html***********************************************************
+<!DOCTYPE>
+<html>
+<head><script type="text/javascript" src="ff.js"></script>
+<title>Feedback form</title></head>
+<body><form name="myform" onsubmit="getmyData()">
+<h2>Feedback Form</h2>
+Name*<select id="sn" required>
+<option>Mr.</option>
+<option>Ms.</option>
+<option>Mrs.</option></select>
+<input type="text" id="nam" pattern="[A-Za-z]{5,}"  required><br/>
+Address1*<input type="text" required><br/>
+Address2*<input type="text" required><br/>
+State*<select name="State" id="st" onChange="selectcity()" required><option>-Select-</option>
+               <option value="AP">AP</option>
+               <option value="Karnataka">Karnataka</option>
+               <option value="Maharashtra">Maharashtra</option>
+               <option value="Tamil Nadu">Tamil Nadu</option>
+               <option value="Telangana">Telangana</option></select>
+City*<select name="City" id="cit" required><option>-Select-</option>
+    <option value=" ">
+    <option value=" ">
+    <option value=" ">
+    <option value=" ">
+    <option value=" ">
+    <option value=" ">
+    </option>
+    </select><br/>
+Pincode*<input type ="number" maxlength="6" required><br/>
+Mobile Number*<input type="tel" maxlength="10"><br/>
+Email ID*<input type="email"><br/>
+Select Car Model*<select id="car" onchange="mycar()"><option>-Select-</option>
+           <option>Maruti Zen Estilo</option>
+               <option>Maruti Alto 800</option>
+               <option>Ford Ecosport</option>
+               <option>Ford Aspire</option>
+               <option>Toyota Fortuner</option></select><br/>
+<input type="checkbox" value="Paint" checked>Paint
+<input type="checkbox" value="EngineRepair">EngineRepair
+<input type="checkbox" value="BodyRepair">BodyRepair
+<input type="checkbox" value="FreeService" checked>FreeService
+<input type="checkbox" value="PaidService">PaidService<br/>
+Total Kilometers Covered*<input type="number" required><br/>
+Your Feedback*<input type="number"  id="feed" min="1" max="10" required>
+<input type="submit" value="Submit">
+<input type="reset" value="Cancel">
+
+ </body>
+</html>
+********************************************js*********************************************
+function selectcity()
+        {
+        var a;
+        
+        a=document.getElementById("st").value
+        if(a=="AP")
+        {
+             document.getElementById("cit").options[1].text="Vizag";
+            document.getElementById("cit").options[1].value="Vizag";
+            document.getElementById("cit").options[2].text="Guntur";
+            document.getElementById("cit").options[2].value="Guntur";
+            document.getElementById("cit").options[3].text="Vijayawada";
+             document.getElementById("cit").options[3].value="Vijayawada";
+             document.getElementById("cit").options[4].text="Kurnool";
+             document.getElementById("cit").options[4].value="Kurnool";
+             document.getElementById("cit").options[5].text="Srikakulam";
+             document.getElementById("cit").options[5].value="Srikakulam";
+             document.getElementById("cit").options[6].text="Amaravati";
+             document.getElementById("cit").options[6].value="Amaravati";
+        }
+            else if(a=="Karnataka")
+            {
+            document.getElementById("cit").options[1].text="Bangalore";
+            document.getElementById("cit").options[1].value="Bangalore";
+            document.getElementById("cit").options[2].text="Mysore";
+            document.getElementById("cit").options[2].value="Mysore";
+            document.getElementById("cit").options[3].text="Bellari";
+             document.getElementById("cit").options[3].value="Bellari";
+             document.getElementById("cit").options[4].text="Mangalore";
+             document.getElementById("cit").options[4].value="Mangalore";
+             document.getElementById("cit").options[5].text="Shivmoga";
+             document.getElementById("cit").options[5].value="Shivmoga";
+             document.getElementById("cit").options[6].text="Belgav";
+             document.getElementById("cit").options[6].value="Belgav";
+            }
+            else if(a=="Maharashtra")
+            {
+            document.getElementById("cit").options[1].text="Pune";
+            document.getElementById("cit").options[1].value="Pune";
+            document.getElementById("cit").options[2].text="Mumbai";
+            document.getElementById("cit").options[2].value="Mumbai";
+            document.getElementById("cit").options[3].text="Nasik";
+             document.getElementById("cit").options[3].value="Nasik";
+            
+             
+             
+            }
+            else if(a=="Tamil Nadu")
+            {
+            document.getElementById("cit").options[1].text="Chennai";
+            document.getElementById("cit").options[1].value="Chennai";
+            document.getElementById("cit").options[2].text="Vellore";
+            document.getElementById("cit").options[2].value="Vellore";
+            document.getElementById("cit").options[3].text="KanyaKumari";
+             document.getElementById("cit").options[3].value="KanyaKumari";
+             document.getElementById("cit").options[4].text="Coimbatore";
+             document.getElementById("cit").options[4].value="Coimbatore";
+            }
+            else if(a=="Telangana")
+            {
+            document.getElementById("cit").options[1].text="Hyderabad";
+            document.getElementById("cit").options[1].value="Hyderabad";
+            document.getElementById("cit").options[2].text="Secunderabad";
+            document.getElementById("cit").options[2].value="Secunderabad";
+            document.getElementById("cit").options[3].text="Warangal";
+             document.getElementById("cit").options[3].value="Warangal";
+             document.getElementById("cit").options[4].text="Medak";
+             document.getElementById("cit").options[4].value="Medak";
+            }
+            
+        }
+        
+function getmyData()
+{
+//alert("hi");
+var sur=document.getElementById("sn").value;
+var nm=document.getElementById("nam").value;
+var fb=document.getElementById("feed").value;
+
+if(fb<=5){alert("Your Feedback : Poor \nThanks for your Valuable Feedback  "+sur+" "+nm);}
+if(fb>5 && fb<8){alert("Your Feedback : Average \nThanks for your Valuable Feedback  "+sur+" "+nm);}
+if(fb>7 && fb<10){alert("Your Feedback : Good \nThanks for your Valuable Feedback  "+sur+" "+nm);}
+if(fb>9){ alert("Your Feedback : Excellent \nThanks for your Valuable Feedback  "+sur+" "+nm);
+}
+
+
+}
+function mycar()
+{
+    var c=document.getElementById("car").value;
+    
+    if(c=="Maruti Zen Estilo")
+    {
+        
+    document.body.style.backgroundImage = "url('images/zen.jpg')";
+    }
+    
+    if(c=="Maruti Alto 800")
+    {
+        
+    document.body.style.backgroundImage = "url('images/alto.jpg')";
+    }
+    
+    if(c=="Ford Ecosport")
+    {
+        
+    document.body.style.backgroundImage = "url('images/eco.jpg')";
+    }
+    
+    if(c=="Ford Aspire")
+    {
+        
+    document.body.style.backgroundImage = "url('images/asp.jpg')";
+    }
+    
+    if(c=="Toyota Fortuner")
+    {
+        
+    document.body.style.backgroundImage = "url('images/fort.jpg')";
+    }
+    
+    
+    
+}
+*****************************************************************************************************************
+***********************************************************************************************************
+  XML
+  ********************************************************************************************************
+  
+  <?xml version="1.0" encoding="UTF-8"?>
+<Feedbackform xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="feed1.xsd">
+
+        <Name>
+            <Mr></Mr>
+            <Mrs></Mrs>
+            <Ms></Ms>
+        </Name>
+        
+        <Address1> 1-93 </Address1>
+        <Address2>hyderabad </Address2>
+        
+        <States>
+        
+                <state>
+            
+                    <sta-name>AP</sta-name>
+                    <sta-name>MP</sta-name>
+                    <sta-name>TN</sta-name>
+                </state>
+           
+                <City>
+            
+                    <cty-name>HYD</cty-name>
+                    <cty-name>MUMBAI</cty-name>
+                    <cty-name>Chennai</cty-name>
+                </City>
+          
+        
+        </States>
+        
+        
+        <pincode>517424</pincode>
+        <Mob-no>789654321</Mob-no>
+        <email>abs@gmail.com</email>
+        
+        <SelectcarModel>
+        
+                <Marutizen>
+                
+                    <paint></paint>
+                    <EngineRepair>*</EngineRepair>
+                    <BodyRepair></BodyRepair>
+                    <FreeService>*</FreeService>
+                    <Paidservice></Paidservice>
+                
+                </Marutizen>
+                
+                 <Hondacity>
+                
+                    <paint></paint>
+                    <EngineRepair></EngineRepair>
+                    <BodyRepair>*</BodyRepair>
+                    <FreeService></FreeService>
+                    <Paidservice>*</Paidservice>
+                
+                </Hondacity>
+                
+                
+        </SelectcarModel>
+        
+        
+        <TotalkilometerCovered>10000</TotalkilometerCovered>
+        <YourFeedback>Good</YourFeedback>
+        
+        
+</Feedbackform>     
+  **************************************************************************************************************
+      XSD
+   *******************************************************************************************************************
+   
+   <?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         
+       <xs:element name="Feedbackform">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="Name">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="Mr"></xs:element>
+                                                 <xs:element name="Mrs"></xs:element>
+                                                 <xs:element name="Ms"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                            <xs:element name="Address1" type="xs:string"></xs:element>
+                            <xs:element name="Address2" type="xs:string"></xs:element>
+                            <xs:element name="States">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="state">
+                                                        <xs:complexType>
+                                                               <xs:sequence>
+                                                                      <xs:element name="sta-name" maxOccurs="unbounded" type="xs:string"></xs:element>
+                                                                  </xs:sequence>
+                                                           </xs:complexType>
+                                                    </xs:element>
+                                                 <xs:element name="City">
+                                                        <xs:complexType>
+                                                               <xs:sequence>
+                                                                      <xs:element name="cty-name" maxOccurs="unbounded" type="xs:string"></xs:element>
+                                                                  </xs:sequence>
+                                                           </xs:complexType>
+                                                    </xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                            <xs:element name="pincode" type="xs:int"></xs:element>
+                            <xs:element name="Mob-no" type="xs:int"></xs:element>
+                            <xs:element name="email" type="xs:string"></xs:element>
+                            <xs:element name="SelectcarModel">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="Marutizen">
+                                                        <xs:complexType>
+                                                               <xs:sequence>
+                                                                      <xs:element name="paint"></xs:element>
+                                                                      <xs:element name="EngineRepair" type="xs:string"></xs:element>
+                                                                      <xs:element name="BodyRepair"></xs:element>
+                                                                      <xs:element name="FreeService" type="xs:string"></xs:element>
+                                                                      <xs:element name="Paidservice"></xs:element>
+                                                                  </xs:sequence>
+                                                           </xs:complexType>
+                                                    </xs:element>
+                                                 <xs:element name="Hondacity">
+                                                        <xs:complexType>
+                                                               <xs:sequence>
+                                                                      <xs:element name="paint"></xs:element>
+                                                                      <xs:element name="EngineRepair"></xs:element>
+                                                                      <xs:element name="BodyRepair" type="xs:string"></xs:element>
+                                                                      <xs:element name="FreeService"></xs:element>
+                                                                      <xs:element name="Paidservice" type="xs:string"></xs:element>
+                                                                  </xs:sequence>
+                                                           </xs:complexType>
+                                                    </xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                            <xs:element name="TotalkilometerCovered" type="xs:int"></xs:element>
+                            <xs:element name="YourFeedback" type="xs:string"></xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+   </xs:schema>
+   
+   
+   **************************************************************************************************************************
+   
+         

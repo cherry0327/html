@@ -1,0 +1,175 @@
+SYSTEMS PAPER-2
+****************************************************************************************
+HTML
+******************************************************************************
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Employee Information</title>
+    <script type="text/javascript" src="citylibrary.js"></script>
+</head>
+<body>
+    <form name="myform" onsubmit="getData()">
+    <table align="center" border="3">
+    <tr><td>
+    <table>
+        <tr height="80">
+            <td colspan="2" style="font-size:30px"><center><b>City Library</b></center></td>
+        </tr>
+
+        
+        <tr>
+        
+            <td>Employee Name</td>
+            <td><input type="text" name="name" /> </td>
+
+        </tr>
+        
+        <tr>
+            <td>Mobile Number</td>
+            <td><input type="text" name="mobn" /> </td>
+        </tr>
+        <tr>
+            <td>Email id</td>
+            <td><input type="email" name="custmail" /> </td>
+        </tr>
+        
+        <tr>
+            <td>Category</td>
+            <td>
+                <select name="cat">
+                    <option value="kids">Kids</option>
+                    <option value="adult" selected>Adult</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Book Type</td>
+            <td>
+                <select name="bt">
+                    <option value="Politics">Politics</option>
+                    <option value="Comics" selected>Comics</option>
+                    <option value="Sports">Sports</option>
+                    <option value="TravelStories">TravelStories</option>
+                    <option value="Science">Science</option>
+                    <option value="Cinema">Cinema</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+
+            <td colspan="2" align="center"><input type="submit" value="Book" /> </td>
+
+        </tr>
+    </table> 
+    </td></tr>
+    </table>
+</body>
+</body>
+</html>
+**********************************************************************************************************************************
+JS
+***********************************************************************************************************************
+function getData()
+{
+    //alert("hi");
+    var a=document.myform.name.value;
+    var b=document.myform.cat.value;
+    var c=document.myform.bt.value;
+    var d=document.myform.nod").value;
+    var r=(5*d);
+    
+    alert("Member name : "+a+"\nCategory : "+b+"\nBook Type : "+c+"\nPayable Amount : "+r);
+        
+        
+     }
+ **************************************************************************************************************************
+     XML
+ **************************************************************************************************************************
+ 
+ <?xml version="1.0" encoding="UTF-8"?>
+<patients xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="patient.xsd">
+
+
+
+
+      <patient>
+      
+         <pat-id>P001</pat-id>
+         <pname>Rajeev Singh</pname>
+         <Gender>M</Gender>
+         <Ailment>ENT</Ailment>
+         <Doc-id>1001</Doc-id>
+      </patient>
+
+      <patient>
+      
+         <pat-id>P002</pat-id>
+         <pname>Sonam Gupta</pname>
+         <Gender>F</Gender>
+         <Ailment>Ortho</Ailment>
+         <Doc-id>1005</Doc-id>
+      </patient>
+
+
+      
+      <patient>
+      
+         <pat-id>P005</pat-id>
+         <pname>Seema Sharam</pname>
+         <Gender>F</Gender>
+         <Ailment>Surgery</Ailment>
+         <Doc-id>1001</Doc-id>
+      </patient>
+
+      
+      
+      <patient>
+      
+         <pat-id>P008</pat-id>
+         <pname>Kamal Singh</pname>
+         <Gender>F</Gender>
+         <Ailment>ENT</Ailment>
+         <Doc-id>1001</Doc-id>
+      </patient>
+
+       
+      <patient>
+      
+         <pat-id>P009</pat-id>
+         <pname>Kuldeep Bansal</pname>
+         <Gender>M</Gender>
+         <Ailment>Orth</Ailment>
+         <Doc-id>1004</Doc-id>
+      </patient>
+
+</patients>
+
+*****************************************************************************************************************
+Xsd
+************************************************************************************************************
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         
+       <xs:element name="patients">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="patient" maxOccurs="unbounded">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="pat-id" type="xs:string"></xs:element>
+                                                 <xs:element name="pname" type="xs:string"></xs:element>
+                                                 <xs:element name="Gender" type="xs:string"></xs:element>
+                                                 <xs:element name="Ailment" type="xs:string"></xs:element>
+                                                 <xs:element name="Doc-id" type="xs:int"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+   </xs:schema>
+   
+   **************************************************************************************************************
